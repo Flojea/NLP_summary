@@ -20,7 +20,7 @@ def summarize_article(url):
                "www.leparisien.fr":"paragraph text_align_left","www.lesechos.fr" : "sc-14kwckt-6 gPHWRV",
                 "www.liberation.fr":"article_link","www.bbc.com":"ssrcss-1q0x1qg-Paragraph eq5iqo00",
                 "www.lequipe.fr" :"Paragraph__content","www.cairn.info":"para"}
-    list=[".fr",".info"]
+    
     response = requests.get(url)
     html_content = response.text
     soup = BeautifulSoup(html_content, "html.parser")
@@ -36,7 +36,7 @@ def summarize_article(url):
     for paragraph in paragraphs:
         article_text += paragraph.get_text()
         
-    stopwords_language = "french" if in list in url else "english"
+    stopwords_language = "french" if(".fr" in url or ".info" in url) else "english"
         
     stop_words = set(stopwords.words(stopwords_language))
     words = word_tokenize(article_text)
