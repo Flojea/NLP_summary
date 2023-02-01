@@ -6,6 +6,10 @@ import heapq
 from nltk.tokenize import word_tokenize, sent_tokenize
 nltk.download('stopwords')
 from nltk.corpus import stopwords
+from urllib.parse import urlparse
+
+
+
 dictionnaire = {"www.lemonde.fr":"article__paragraph", "www.lefigaro.fr":"fig-paragraph",
                "www.leparisien.fr":"paragraph text_align_left","www.lesechos.fr" : "sc-14kwckt-6 gPHWRV",
                 "www.liberation.fr":"article_link","www.bbc.com":"ssrcss-1q0x1qg-Paragraph eq5iqo00",
