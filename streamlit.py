@@ -69,6 +69,18 @@ def main():
         result = summarize_article(url)
         st.write("Résumé :")
         st.write(result)
+expander = st.sidebar.expander("What is this?")
+expander.write(
+    """
+This app allows users to view migration between states from 2018-2019.
+Overall US plots all states with substantial migration-based relationships with other states.
+Any other option plots only migration from or to a given state. This map will be updated
+to show migration between 2019 and 2020 once new census data comes out.
+Incoming: Shows for a given state, the percent of their **total inbound migration from** another state.
+Outgoing: Shows for a given state, the percent of their **total outbound migration to** another state.
+"""
+)
+
 
 if __name__ == '__main__':
     main()
