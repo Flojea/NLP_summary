@@ -12,17 +12,18 @@ from nltk.corpus import stopwords
 from urllib.parse import urlparse
 
 
-dictionnaire = {"www.lemonde.fr":"article__paragraph", "www.lefigaro.fr":"fig-paragraph",
+
+
+def summarize_article(url):
+    dictionnaire = {"www.lemonde.fr":"article__paragraph", "www.lefigaro.fr":"fig-paragraph",
                "www.leparisien.fr":"paragraph text_align_left","www.lesechos.fr" : "sc-14kwckt-6 gPHWRV",
                 "www.liberation.fr":"article_link","www.bbc.com":"ssrcss-1q0x1qg-Paragraph eq5iqo00",
                 "www.lequipe.fr" :"Paragraph__content"}
-
-def summarize_article(url):
     response = requests.get(url)
     html_content = response.text
+    soup = BeautifulSoup(html_content, "html.parser")
     parsed_url = urlparse(url)
     domain = parsed_url.netloc
-    soup = BeautifulSoup(html_content, "html.parser")
     if domain in dictionnaire:
         class_name = dictionnaire[domain]
         paragraphs = soup.find_all("p", class_=class_name)
