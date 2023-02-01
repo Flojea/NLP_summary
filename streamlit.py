@@ -6,7 +6,7 @@ import heapq
 from nltk.tokenize import word_tokenize, sent_tokenize
 nltk.download('stopwords')
 from nltk.corpus import stopwords
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 
 
