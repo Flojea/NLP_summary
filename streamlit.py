@@ -36,7 +36,7 @@ def summarize_article(url):
     for paragraph in paragraphs:
         article_text += paragraph.get_text()
         
-    stopwords_language = "french" if list in url else "english"
+    stopwords_language = "french" if in list in url else "english"
         
     stop_words = set(stopwords.words(stopwords_language))
     words = word_tokenize(article_text)
