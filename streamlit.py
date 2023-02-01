@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-import bs4
+from bs4 import BeautifulSoup
 import nltk
 import heapq
 from nltk.tokenize import word_tokenize, sent_tokenize
