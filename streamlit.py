@@ -12,19 +12,16 @@ from nltk.corpus import stopwords
 from urllib.parse import urlparse
 
 
-
-
 dictionnaire = {"www.lemonde.fr":"article__paragraph", "www.lefigaro.fr":"fig-paragraph",
                "www.leparisien.fr":"paragraph text_align_left","www.lesechos.fr" : "sc-14kwckt-6 gPHWRV",
                 "www.liberation.fr":"article_link","www.bbc.com":"ssrcss-1q0x1qg-Paragraph eq5iqo00",
-                "www.lequipe.fr" :"Paragraph__content"
-              }
+                "www.lequipe.fr" :"Paragraph__content"}
 
 def summarize_article(url):
-    parsed_url = urlparse(url)
-    domain = parsed_url.netloc
     response = requests.get(url)
     html_content = response.text
+    parsed_url = urlparse(url)
+    domain = parsed_url.netloc
     soup = BeautifulSoup(html_content, "html.parser")
     if domain in dictionnaire:
         class_name = dictionnaire[domain]
@@ -35,13 +32,10 @@ def summarize_article(url):
     article_text = ""
     for paragraph in paragraphs:
         article_text += paragraph.get_text()
-    if ".fr" in url:
-        x="french"
-    else :
-        x = "english"
-
-
-    stop_words = set(stopwords.words(x))
+        
+    stopwords_language = "french" if ".fr" in url else "english"
+        
+    stop_words = set(stopwords.words(stopwords_language))
     words = word_tokenize(article_text)
     word_frequencies = {}
     for word in words:
