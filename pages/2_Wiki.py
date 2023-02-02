@@ -26,7 +26,7 @@ def summarize_article(pop):
     source = urlopen(pop).read()
 
     # Make a soup 
-    soup = BeautifulSoup(source,'lxml') 
+    soup = BeautifulSoup(source,'html.parser') 
 
 
     # Extract the plain text content from paragraphs
