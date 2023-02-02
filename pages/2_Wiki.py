@@ -12,7 +12,6 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 from urllib.parse import urlparse
 from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import re
 
 
