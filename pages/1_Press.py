@@ -19,7 +19,7 @@ def summarize_article(url):
     dictionnaire = {"www.lemonde.fr":"article__paragraph", "www.lefigaro.fr":"fig-paragraph",
                "www.leparisien.fr":"paragraph text_align_left","www.lesechos.fr" : "sc-14kwckt-6 gPHWRV",
                 "www.liberation.fr":"article_link","www.bbc.com":"ssrcss-1q0x1qg-Paragraph eq5iqo00",
-                "www.lequipe.fr" :"Paragraph__content", "www.rugbyrama.fr" : "article-full__body"}
+                "www.lequipe.fr" :"Paragraph__content", "www.rugbyrama.fr" : "article-full__content"}
     
     response = requests.get(url)
     html_content = response.text
