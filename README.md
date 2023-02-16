@@ -1,4 +1,4 @@
-# NLP_summary
+# NLP summary project
 
 
 # https://flojea-nlp-summary-home-vg4v1i.streamlit.app/
